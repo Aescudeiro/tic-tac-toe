@@ -21,7 +21,7 @@ export const Dialog = () => {
             <div className="flex justify-center items-center h-screen w-screen">
                 <div className="max-w-md py-4 px-8 bg-white shadow-lg rounded-lg my-20 w-80">
                     <div className="flex items-center flex-col">
-                        {winner === "D" ? (
+                        {winner === "d" ? (
                             <h1 className="text-3xl	mt-3">It's a draw</h1>
                         ) : (
                             <Fragment>
@@ -32,13 +32,13 @@ export const Dialog = () => {
                     </div>
                     <div className="flex justify-between mt-4">
                         <button
-                            className="px-4 py-2 rounded-md text-sm font-medium border-0 focus:outline-none focus:ring transition text-white bg-yellow-500 hover:bg-yellow-600 active:bg-yellow-700 focus:ring-yellow-300"
+                            className="px-4 py-2 rounded-md text-sm font-medium border-0 focus:outline-none focus:ring transition text-white bg-yellow-500 hover:bg-yellow-600"
                             onClick={handleRestartGameClick}
                         >
                             Restart
                         </button>
                         <button
-                            className="px-4 py-2 rounded-md text-sm font-medium border-0 focus:outline-none focus:ring transition text-white bg-blue-500 hover:bg-blue-600 active:bg-blue-700 focus:ring-blue-300"
+                            className="px-4 py-2 rounded-md text-sm font-medium border-0 focus:outline-none focus:ring transition text-white bg-sky-500 hover:bg-sky-600"
                             onClick={handleNewRoundClick}
                         >
                             Next Round

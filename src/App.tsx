@@ -2,11 +2,12 @@ import "./App.css";
 import { Board } from "@components/Board";
 import { useGame } from "@hooks/useGame";
 import { useDialog } from "@hooks/useDialog";
-import { Dialog } from "@components/Dialog/Dialog";
+import { Dialog } from "@components/Dialog";
 import { useEffect } from "react";
+import { Scores } from "@components/Scores";
 
 function App() {
-    const { currentPlayer, winner, scores } = useGame();
+    const { currentPlayer, winner } = useGame();
     const { show, showModal } = useDialog();
 
     useEffect(() => {
@@ -14,14 +15,14 @@ function App() {
     }, [winner]);
 
     return (
-        <div className="flex flex-col justify-center items-center h-screen bg-white">
+        <div className="flex flex-col justify-center items-center h-screen bg-neutral-300">
             {show && <Dialog />}
-            <h1 className="text-black">Tic-Tac-Toe</h1>
-            <p>{`${currentPlayer} turn`}</p>
-            <Board />
-            <div>O: {scores.o}</div>
-            <div>D: {scores.d}</div>
-            <div>X: {scores.x}</div>
+            <div>
+                <h1 className="text-black">Tic-Tac-Toe</h1>
+                <p>{`${currentPlayer} turn`}</p>
+                <Board />
+                <Scores />
+            </div>
         </div>
     );
 }

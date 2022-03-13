@@ -11,7 +11,7 @@ export const Square: FC<Props> = (props) => {
 
     return (
         <button
-            className="w-24 h-24 border-2 rounded border-black border-solid"
+            className="w-24 h-24 border-2 text-3xl rounded border-black border-solid"
             onClick={onClick}
         >
             {player}
