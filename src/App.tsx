@@ -16,9 +16,9 @@ function App() {
 
     return (
         <div className="flex flex-col justify-center items-center h-screen bg-neutral-300">
+            <h1 className="text-black">Tic-Tac-Toe</h1>
             {show && <Dialog />}
             <div>
-                <h1 className="text-black">Tic-Tac-Toe</h1>
                 <p>{`${currentPlayer} turn`}</p>
                 <Board />
                 <Scores />
