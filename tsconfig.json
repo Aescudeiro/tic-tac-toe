@@ -20,7 +20,8 @@
             "@components/*": ["components/*"],
             "@hooks/*": ["hooks/*"],
             "@contexts/*": ["contexts/*"],
-            "@providers/*": ["providers/*"]
+            "@providers/*": ["providers/*"],
+            "@utils/*": ["utils/*"]
         }
     },
     "include": ["src"],

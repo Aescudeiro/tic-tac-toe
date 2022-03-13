@@ -1,7 +1,10 @@
 import { createContext } from "react";
 
-const grid = ["", "", "", "", "", "", "", "", ""];
+type GameContext = {
+    grid: string[];
+    handleClick: (index: number) => void;
+    winner: string | null;
+    currentPlayer: string;
+};
 
-const currentPlayer = "X";
-
-export const TicTacToeContext = createContext({ grid, currentPlayer });
+export const TicTacToeContext = createContext({} as GameContext);
