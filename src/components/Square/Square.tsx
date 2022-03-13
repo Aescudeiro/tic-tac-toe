@@ -1,20 +1,20 @@
-import { useGame } from "@hooks/useGame";
+import { Player } from "@typescript/types";
 import { FC } from "react";
 
 type Props = {
-    index: number;
+    player: Player | null;
+    onClick: () => void;
 };
 
 export const Square: FC<Props> = (props) => {
-    const { index } = props;
-    const { grid, handleClick } = useGame();
+    const { player, onClick } = props;
 
     return (
         <button
-            className="w-24 h-24 border-2 rounded border-white border-solid"
-            onClick={() => handleClick(index)}
+            className="w-24 h-24 border-2 rounded border-black border-solid"
+            onClick={onClick}
         >
-            {grid[index]}
+            {player}
         </button>
     );
 };

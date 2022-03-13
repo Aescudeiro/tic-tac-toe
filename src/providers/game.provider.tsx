@@ -1,13 +1,28 @@
 import { TicTacToeContext } from "@contexts/game.context";
-import { FC, useState } from "react";
+import { Player } from "@typescript/types";
+import { FC, useEffect, useState } from "react";
 import { calculateWinner } from "utils/calculateWinner";
 
 export const TicTacToeProvider: FC = ({ children }) => {
-    const [grid, setGrid] = useState(Array(9).fill(""));
-    const [currentPlayer, setCurrentPlayer] = useState("X");
+    const [grid, setGrid] = useState<Player[]>(Array(9).fill(null));
+    const [currentPlayer, setCurrentPlayer] = useState<Player>("x");
     const winner = calculateWinner(grid);
+    const [scores, setScores] = useState({
+        x: 0,
+        d: 0,
+        o: 0,
+    });
 
-    const handleClick = (index: number) => {
+    useEffect(() => {
+        if (winner) {
+            setScores((prevState) => ({
+                ...prevState,
+                [winner]: scores[winner]++,
+            }));
+        }
+    }, [winner]);
+
+    const onClick = (index: number) => {
         const gridCopy = [...grid];
 
         if (winner || gridCopy[index]) {
@@ -17,24 +32,39 @@ export const TicTacToeProvider: FC = ({ children }) => {
         gridCopy[index] = currentPlayer;
         setGrid(gridCopy);
 
-        const nextPlayer = currentPlayer === "X" ? "O" : "X";
+        const nextPlayer = currentPlayer === "x" ? "o" : "x";
         setCurrentPlayer(nextPlayer);
     };
 
     const resetGrid = () => {
-        const gridCopy = [...grid];
+        setGrid(Array(9).fill(null));
+        setCurrentPlayer("x");
+    };
 
-        for (let i = 0; i < gridCopy.length; i++) {
-            gridCopy[i] = "";
-        }
+    const restartGame = () => {
+        resetGrid();
+        setScores({
+            x: 0,
+            d: 0,
+            o: 0,
+        });
+    };
 
-        setGrid(gridCopy);
-        setCurrentPlayer("X");
+    const newRound = () => {
+        resetGrid();
     };
 
     return (
         <TicTacToeContext.Provider
-            value={{ grid, handleClick, winner, currentPlayer, resetGrid }}
+            value={{
+                grid,
+                onClick,
+                winner,
+                currentPlayer,
+                restartGame,
+                scores,
+                newRound,
+            }}
         >
             {children}
         </TicTacToeContext.Provider>

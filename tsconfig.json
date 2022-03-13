@@ -21,7 +21,8 @@
             "@hooks/*": ["hooks/*"],
             "@contexts/*": ["contexts/*"],
             "@providers/*": ["providers/*"],
-            "@utils/*": ["utils/*"]
+            "@utils/*": ["utils/*"],
+            "@typescript/*": ["typescript/*"]
         }
     },
     "include": ["src"],
