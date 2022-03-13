@@ -11,7 +11,7 @@ export const Square: FC<Props> = (props) => {
 
     return (
         <button
-            className="w-9 h-9 border-2 rounded border-white border-solid"
+            className="w-24 h-24 border-2 rounded border-white border-solid"
             onClick={() => handleClick(index)}
         >
             {grid[index]}

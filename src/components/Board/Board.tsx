@@ -6,12 +6,8 @@ export const Board = () => {
 
     return (
         <div className="text-white">
-            <p>
-                {winner
-                    ? "Winner: " + winner
-                    : "Current Player: " + currentPlayer}
-            </p>
-            <div className="grid grid-cols-3 gap-1">
+            <p>{winner ? `Winner: ${winner}` : `${currentPlayer} turn`}</p>
+            <div className="grid grid-cols-3 gap-2">
                 {grid.map((_square, index) => (
                     <Square key={index} index={index} />
                 ))}
