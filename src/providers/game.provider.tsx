@@ -21,9 +21,20 @@ export const TicTacToeProvider: FC = ({ children }) => {
         setCurrentPlayer(nextPlayer);
     };
 
+    const resetGrid = () => {
+        const gridCopy = [...grid];
+
+        for (let i = 0; i < gridCopy.length; i++) {
+            gridCopy[i] = "";
+        }
+
+        setGrid(gridCopy);
+        setCurrentPlayer("X");
+    };
+
     return (
         <TicTacToeContext.Provider
-            value={{ grid, handleClick, winner, currentPlayer }}
+            value={{ grid, handleClick, winner, currentPlayer, resetGrid }}
         >
             {children}
         </TicTacToeContext.Provider>

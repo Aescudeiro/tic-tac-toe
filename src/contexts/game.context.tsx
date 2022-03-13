@@ -5,6 +5,7 @@ type GameContext = {
     handleClick: (index: number) => void;
     winner: string | null;
     currentPlayer: string;
+    resetGrid: () => void;
 };
 
 export const TicTacToeContext = createContext({} as GameContext);
