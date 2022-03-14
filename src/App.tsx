@@ -5,7 +5,7 @@ import { Dialog } from "@components/Dialog";
 import { Scores } from "@components/Scores";
 
 function App() {
-    const { currentPlayer, winner, restartGame } = useGame();
+    const { currentPlayer, winner, resetScore } = useGame();
 
     return (
         <div className="flex flex-col justify-center items-center h-screen bg-neutral-300">
@@ -16,7 +16,7 @@ function App() {
                     <h1>{`${currentPlayer} turn`}</h1>
                     <button
                         className="border-2 rounded px-2 mb-1 border-black border-solid hover:bg-gray-400"
-                        onClick={restartGame}
+                        onClick={resetScore}
                     >
                         Restart
                     </button>

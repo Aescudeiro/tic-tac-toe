@@ -2,7 +2,7 @@ import { Player } from "@typescript/types";
 import { FC } from "react";
 
 type Props = {
-    player: Player | null;
+    player: Player;
     onClick: () => void;
 };
 

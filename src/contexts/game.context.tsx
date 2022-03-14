@@ -1,18 +1,14 @@
-import { Player } from "@typescript/types";
+import { Score, Player } from "@typescript/types";
 import { createContext } from "react";
 
 type GameContext = {
     grid: Player[];
-    onClick: (index: number) => void;
     winner: string | null;
     currentPlayer: string;
-    restartGame: () => void;
-    scores: {
-        x: number;
-        d: number;
-        o: number;
-    };
-    newRound: () => void;
+    score: Score;
+    updateBoard: (index: number) => void;
+    clearBoard: () => void;
+    resetScore: () => void;
 };
 
 export const TicTacToeContext = createContext({} as GameContext);

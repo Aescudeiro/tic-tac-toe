@@ -1,3 +1,9 @@
-export type Player = "x" | "o";
+export enum Player {
+    X = "❌",
+    O = "🔵",
+}
 
-export type Win = "d" | Player;
+export type Score = {
+    [Player.X]: number;
+    [Player.O]: number;
+};

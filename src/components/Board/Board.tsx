@@ -2,7 +2,7 @@ import { Square } from "@components/Square";
 import { useGame } from "@hooks/useGame";
 
 export const Board = () => {
-    const { grid, onClick } = useGame();
+    const { grid, updateBoard } = useGame();
 
     return (
         <div className="text-black">
@@ -11,7 +11,7 @@ export const Board = () => {
                     <Square
                         key={index}
                         player={grid[index]}
-                        onClick={() => onClick(index)}
+                        onClick={() => updateBoard(index)}
                     />
                 ))}
             </div>

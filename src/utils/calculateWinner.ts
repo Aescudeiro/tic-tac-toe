@@ -1,6 +1,6 @@
-import { Player, Win } from "@typescript/types";
+import { Player } from "@typescript/types";
 
-export const calculateWinner = (grid: Player[] | null[]): Win | null => {
+export const calculateWinner = (grid: Player[]) => {
     const lines = [
         [0, 1, 2],
         [3, 4, 5],
@@ -20,7 +20,5 @@ export const calculateWinner = (grid: Player[] | null[]): Win | null => {
         }
     }
 
-    if (grid.some((square) => square === null)) return null;
-
-    return "d";
+    return null;
 };
