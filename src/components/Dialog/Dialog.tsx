@@ -1,20 +1,8 @@
-import { useDialog } from "@hooks/useDialog";
 import { useGame } from "@hooks/useGame";
 import { Fragment } from "react";
 
 export const Dialog = () => {
     const { restartGame, winner, newRound } = useGame();
-    const { hideModal } = useDialog();
-
-    const handleRestartGameClick = () => {
-        restartGame();
-        hideModal();
-    };
-
-    const handleNewRoundClick = () => {
-        newRound();
-        hideModal();
-    };
 
     return (
         <div className="fixed inset-0 bg-black bg-opacity-80">
@@ -33,13 +21,13 @@ export const Dialog = () => {
                     <div className="flex justify-between mt-4">
                         <button
                             className="px-4 py-2 rounded-md text-sm font-medium border-0 focus:outline-none focus:ring transition text-white bg-yellow-500 hover:bg-yellow-600"
-                            onClick={handleRestartGameClick}
+                            onClick={restartGame}
                         >
                             Restart
                         </button>
                         <button
                             className="px-4 py-2 rounded-md text-sm font-medium border-0 focus:outline-none focus:ring transition text-white bg-sky-500 hover:bg-sky-600"
-                            onClick={handleNewRoundClick}
+                            onClick={newRound}
                         >
                             Next Round
                         </button>

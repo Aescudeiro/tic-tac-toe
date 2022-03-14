@@ -1,25 +1,26 @@
 import "./App.css";
 import { Board } from "@components/Board";
 import { useGame } from "@hooks/useGame";
-import { useDialog } from "@hooks/useDialog";
 import { Dialog } from "@components/Dialog";
-import { useEffect } from "react";
 import { Scores } from "@components/Scores";
 
 function App() {
-    const { currentPlayer, winner } = useGame();
-    const { show, showModal } = useDialog();
-
-    useEffect(() => {
-        winner && showModal();
-    }, [winner]);
+    const { currentPlayer, winner, restartGame } = useGame();
 
     return (
         <div className="flex flex-col justify-center items-center h-screen bg-neutral-300">
+            {winner && <Dialog />}
             <h1 className="text-black">Tic-Tac-Toe</h1>
-            {show && <Dialog />}
             <div>
-                <p>{`${currentPlayer} turn`}</p>
+                <div className="flex justify-between">
+                    <h1>{`${currentPlayer} turn`}</h1>
+                    <button
+                        className="border-2 rounded px-2 mb-1 border-black border-solid hover:bg-gray-400"
+                        onClick={restartGame}
+                    >
+                        Restart
+                    </button>
+                </div>
                 <Board />
                 <Scores />
             </div>
